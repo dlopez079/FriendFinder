@@ -10,6 +10,7 @@ module.exports = function(app) {
 
     app.post("/api/friends", function(req, res){
         //CREATE YOUR LOG FOR COMPAIRING FRIENDS SCORES FROM SURVEY
+        friends.push(req.body);
     });
 
 }
