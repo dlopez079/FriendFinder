@@ -13,7 +13,7 @@ module.exports = function (app) {
         //CREATE YOUR LOG FOR COMPAIRING FRIENDS SCORES FROM SURVEY
         // console.log(req.body); CONFIRMED WORKING!
 
-
+      
         //I created a break for my console.logs returns
         var linebreak = "***********************************************************";
 
@@ -24,33 +24,23 @@ module.exports = function (app) {
             friendDifference: 1000
         };
 
-        //I created a variable to hold the req.body called userData
         var userData = req.body;
-
-        //I created a variable userName to hold the req.body.name
         var userName = userData.name;
-
-        //I created a variable userScores to hold the req.body.scores
         var userScores = userData.scores;
 
-        //I'm taking every value in the userScores array and changing it from string to integer with radix of 10.  This will allow me to do the math necessary math to find out best friend. 
         var b = userScores.map(function (item) {
             return parseInt(item, 10);
         });
-
-        //The user data that we obtain from the user must be put in an object so we can push it to the friends object.  I include the b array.
         userData = {
-            name: userName,  //name: userName
-            photo: req.body.photo,  
+            name: req.body.name,
+            photo: req.body.photo,
             scores: b
         };
 
-        console.log(userName); //Confirmed Username populates
-        console.log(userScores);  //Confirmed userScores populates
-        console.log(linebreak); //Line break to separate users.
+        console.log("Name: " + userName);
+        console.log("User Score " + userScores);
+        console.log(linebreak);
 
-        //Getting the difference of each index is the same as adding the values of the array and 
-        //I took the b array and retrieved the sum of the entire array. 
         var sum = b.reduce((a, b) => a + b, 0);
 
         console.log("Sum of users score " + sum);
