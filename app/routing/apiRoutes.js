@@ -37,7 +37,7 @@ module.exports = function (app) {
         var b = userScores.map(function (item) {
             return parseInt(item, 10);
         });
-
+        console.log(req.body.photo);
         //The user data that we obtain from the user must be put in an object so we can push it to the friends object.  I include the b array.
         userData = {
             name: userName,  //name: userName
@@ -49,8 +49,7 @@ module.exports = function (app) {
         console.log(userScores);  //Confirmed userScores populates
         console.log(linebreak); //Line break to separate users.
 
-        //Getting the difference of each index is the same as adding the values of the array and 
-        //I took the b array and retrieved the sum of the entire array. 
+         
         var sum = b.reduce((a, b) => a + b, 0);
 
         console.log("Sum of users score " + sum);

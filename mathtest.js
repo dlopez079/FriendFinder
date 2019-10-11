@@ -48,7 +48,9 @@ var userScores = [
     ]
 
 var userScore;
-var friendScore;
+var friendScore = {
+    "scores" : friends  .scores,
+};
 
 //we have to subtract the matching indexes from each array.
 //I looped through the first array and  used userScore to hold the values.
